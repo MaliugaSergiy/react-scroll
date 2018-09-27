@@ -1,5 +1,5 @@
-import { addPassiveEventListener } from './passive-event-listeners';
-import utils from './utils';
+import { addPassiveEventListener } from "./passive-event-listeners";
+import utils from "./utils";
 
 const scrollHash = {
   mountFlag: false,
@@ -11,7 +11,7 @@ const scrollHash = {
     this.scroller = scroller;
 
     this.handleHashChange = this.handleHashChange.bind(this);
-    window.addEventListener('hashchange', this.handleHashChange);
+    window.addEventListener("hashchange", this.handleHashChange);
 
     this.initStateFromHash();
     this.mountFlag = true;
@@ -56,7 +56,7 @@ const scrollHash = {
 
   changeHash(to) {
     if (this.isInitialized() && utils.getHash() !== to) {
-      utils.pushHash(to);
+      utils.replaceHash(to);
     }
   },
 
@@ -67,8 +67,8 @@ const scrollHash = {
   unmount() {
     this.scroller = null;
     this.containers = null;
-    window.removeEventListener('hashchange', this.handleHashChange);
-  },
+    window.removeEventListener("hashchange", this.handleHashChange);
+  }
 };
 
 export default scrollHash;
