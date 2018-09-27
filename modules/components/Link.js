@@ -1,10 +1,18 @@
 "use strict";
 
-import React from 'react';
-import ScrollLink from '../mixins/scroll-link';
+import React from "react";
+import ScrollLink from "../mixins/scroll-link";
 
 class LinkElement extends React.Component {
-  render = () => (<a {...this.props}>{this.props.children}</a>)
-};
+  render = () => (
+    <a {...this.props} href={`#${this.props.to}`} onClick={this.handleClick}>
+      {this.props.children}
+    </a>
+  );
 
-export default ScrollLink(LinkElement)
+  handleClick = e => {
+    e.preventDefault();
+  };
+}
+
+export default ScrollLink(LinkElement);
