@@ -4,11 +4,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _react = require('react');
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _scrollLink = require('../mixins/scroll-link');
+var _scrollLink = require("../mixins/scroll-link");
 
 var _scrollLink2 = _interopRequireDefault(_scrollLink);
 
@@ -36,16 +38,16 @@ var LinkElement = function (_React$Component) {
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = LinkElement.__proto__ || Object.getPrototypeOf(LinkElement)).call.apply(_ref, [this].concat(args))), _this), _this.render = function () {
       return _react2.default.createElement(
-        'a',
-        _this.props,
+        "a",
+        _extends({}, _this.props, { href: "#" + _this.props.to, onClick: _this.handleClick }),
         _this.props.children
       );
+    }, _this.handleClick = function (e) {
+      e.preventDefault();
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   return LinkElement;
 }(_react2.default.Component);
-
-;
 
 exports.default = (0, _scrollLink2.default)(LinkElement);
