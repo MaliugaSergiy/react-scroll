@@ -12,14 +12,14 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var React = require('react');
-var ReactDOM = require('react-dom');
+var React = require("react");
+var ReactDOM = require("react-dom");
 
-var utils = require('./utils');
-var scrollSpy = require('./scroll-spy');
-var defaultScroller = require('./scroller');
-var PropTypes = require('prop-types');
-var scrollHash = require('./scroll-hash');
+var utils = require("./utils");
+var scrollSpy = require("./scroll-spy");
+var defaultScroller = require("./scroller");
+var PropTypes = require("prop-types");
+var scrollHash = require("./scroll-hash");
 
 var protoTypes = {
   to: PropTypes.string.isRequired,
@@ -42,7 +42,6 @@ var protoTypes = {
 
 var Helpers = {
   Scroll: function Scroll(Component, customScroller) {
-
     console.warn("Helpers.Scroll is deprecated since v1.7.0");
 
     var scroller = customScroller || defaultScroller;
@@ -64,7 +63,7 @@ var Helpers = {
       }
 
       _createClass(Scroll, [{
-        key: 'getScrollSpyContainer',
+        key: "getScrollSpyContainer",
         value: function getScrollSpyContainer() {
           var containerId = this.props.containerId;
           var container = this.props.container;
@@ -80,7 +79,7 @@ var Helpers = {
           return document;
         }
       }, {
-        key: 'componentDidMount',
+        key: "componentDidMount",
         value: function componentDidMount() {
           if (this.props.spy || this.props.hashSpy) {
             var scrollSpyContainer = this.getScrollSpyContainer();
@@ -108,12 +107,12 @@ var Helpers = {
           }
         }
       }, {
-        key: 'componentWillUnmount',
+        key: "componentWillUnmount",
         value: function componentWillUnmount() {
           scrollSpy.unmount(this.stateHandler, this.spyHandler);
         }
       }, {
-        key: 'render',
+        key: "render",
         value: function render() {
           var className = "";
 
@@ -133,6 +132,7 @@ var Helpers = {
 
           props.className = className;
           props.onClick = this.handleClick;
+          props.href = "#" + this.props.to;
 
           return React.createElement(Component, props);
         }
@@ -149,7 +149,6 @@ var Helpers = {
       };
 
       this.handleClick = function (event) {
-
         /*
          * give the posibility to override onClick
          */
@@ -181,7 +180,6 @@ var Helpers = {
       };
 
       this.spyHandler = function (y) {
-
         var scrollSpyContainer = _this2.getScrollSpyContainer();
 
         if (scrollHash.isMounted() && !scrollHash.isInitialized()) {
@@ -246,8 +244,6 @@ var Helpers = {
       };
     };
 
-    ;
-
     Scroll.propTypes = protoTypes;
 
     Scroll.defaultProps = { offset: 0 };
@@ -255,7 +251,6 @@ var Helpers = {
     return Scroll;
   },
   Element: function Element(Component) {
-
     console.warn("Helpers.Element is deprecated since v1.7.0");
 
     var Element = function (_React$Component2) {
@@ -273,35 +268,35 @@ var Helpers = {
       }
 
       _createClass(Element, [{
-        key: 'componentDidMount',
+        key: "componentDidMount",
         value: function componentDidMount() {
-          if (typeof window === 'undefined') {
+          if (typeof window === "undefined") {
             return false;
           }
           this.registerElems(this.props.name);
         }
       }, {
-        key: 'componentWillReceiveProps',
+        key: "componentWillReceiveProps",
         value: function componentWillReceiveProps(nextProps) {
           if (this.props.name !== nextProps.name) {
             this.registerElems(nextProps.name);
           }
         }
       }, {
-        key: 'componentWillUnmount',
+        key: "componentWillUnmount",
         value: function componentWillUnmount() {
-          if (typeof window === 'undefined') {
+          if (typeof window === "undefined") {
             return false;
           }
           defaultScroller.unregister(this.props.name);
         }
       }, {
-        key: 'registerElems',
+        key: "registerElems",
         value: function registerElems(name) {
           defaultScroller.register(name, this.childBindings.domNode);
         }
       }, {
-        key: 'render',
+        key: "render",
         value: function render() {
           return React.createElement(Component, _extends({}, this.props, { parentBindings: this.childBindings }));
         }
@@ -309,8 +304,6 @@ var Helpers = {
 
       return Element;
     }(React.Component);
-
-    ;
 
     Element.propTypes = {
       name: PropTypes.string,

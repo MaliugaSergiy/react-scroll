@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -8,31 +8,31 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require('react');
+var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = require('react-dom');
+var _reactDom = require("react-dom");
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _utils = require('./utils');
+var _utils = require("./utils");
 
 var _utils2 = _interopRequireDefault(_utils);
 
-var _scrollSpy = require('./scroll-spy');
+var _scrollSpy = require("./scroll-spy");
 
 var _scrollSpy2 = _interopRequireDefault(_scrollSpy);
 
-var _scroller = require('./scroller');
+var _scroller = require("./scroller");
 
 var _scroller2 = _interopRequireDefault(_scroller);
 
-var _propTypes = require('prop-types');
+var _propTypes = require("prop-types");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _scrollHash = require('./scroll-hash');
+var _scrollHash = require("./scroll-hash");
 
 var _scrollHash2 = _interopRequireDefault(_scrollHash);
 
@@ -64,7 +64,6 @@ var protoTypes = {
 };
 
 exports.default = function (Component, customScroller) {
-
   var scroller = customScroller || _scroller2.default;
 
   var Link = function (_React$PureComponent) {
@@ -84,7 +83,7 @@ exports.default = function (Component, customScroller) {
     }
 
     _createClass(Link, [{
-      key: 'getScrollSpyContainer',
+      key: "getScrollSpyContainer",
       value: function getScrollSpyContainer() {
         var containerId = this.props.containerId;
         var container = this.props.container;
@@ -100,7 +99,7 @@ exports.default = function (Component, customScroller) {
         return document;
       }
     }, {
-      key: 'componentDidMount',
+      key: "componentDidMount",
       value: function componentDidMount() {
         if (this.props.spy || this.props.hashSpy) {
           var scrollSpyContainer = this.getScrollSpyContainer();
@@ -124,12 +123,12 @@ exports.default = function (Component, customScroller) {
         }
       }
     }, {
-      key: 'componentWillUnmount',
+      key: "componentWillUnmount",
       value: function componentWillUnmount() {
         _scrollSpy2.default.unmount(this.stateHandler, this.spyHandler);
       }
     }, {
-      key: 'render',
+      key: "render",
       value: function render() {
         var className = "";
 
@@ -149,6 +148,7 @@ exports.default = function (Component, customScroller) {
 
         props.className = className;
         props.onClick = this.handleClick;
+        props.href = "#" + this.props.to;
 
         return _react2.default.createElement(Component, props);
       }
@@ -165,7 +165,6 @@ exports.default = function (Component, customScroller) {
     };
 
     this.handleClick = function (event) {
-
       /*
        * give the posibility to override onClick
        */
@@ -188,7 +187,6 @@ exports.default = function (Component, customScroller) {
     };
 
     this.spyHandler = function (y) {
-
       var scrollSpyContainer = _this2.getScrollSpyContainer();
 
       if (_scrollHash2.default.isMounted() && !_scrollHash2.default.isInitialized()) {
@@ -249,8 +247,6 @@ exports.default = function (Component, customScroller) {
       }
     };
   };
-
-  ;
 
   Link.propTypes = protoTypes;
 

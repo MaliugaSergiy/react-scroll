@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require("react");
 
@@ -26,26 +26,22 @@ var LinkElement = function (_React$Component) {
   _inherits(LinkElement, _React$Component);
 
   function LinkElement() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
     _classCallCheck(this, LinkElement);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
+    return _possibleConstructorReturn(this, (LinkElement.__proto__ || Object.getPrototypeOf(LinkElement)).apply(this, arguments));
+  }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = LinkElement.__proto__ || Object.getPrototypeOf(LinkElement)).call.apply(_ref, [this].concat(args))), _this), _this.render = function () {
+  _createClass(LinkElement, [{
+    key: "render",
+    value: function render() {
+      console.log(this.props);
       return _react2.default.createElement(
         "a",
-        _extends({}, _this.props, { href: "#" + _this.props.to, onClick: _this.handleClick }),
-        _this.props.children
+        this.props,
+        this.props.children
       );
-    }, _this.handleClick = function (e) {
-      e.preventDefault();
-    }, _temp), _possibleConstructorReturn(_this, _ret);
-  }
+    }
+  }]);
 
   return LinkElement;
 }(_react2.default.Component);
