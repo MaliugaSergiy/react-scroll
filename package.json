@@ -1,5 +1,5 @@
 {
-  "name": "react-scroll-fix",
+  "name": "react-scroll",
   "version": "1.7.10",
   "description": "A scroll component for React.js",
   "main": "build/npm/modules",
