@@ -34,7 +34,6 @@ var LinkElement = function (_React$Component) {
   _createClass(LinkElement, [{
     key: "render",
     value: function render() {
-      console.log(this.props);
       return _react2.default.createElement(
         "a",
         this.props,
